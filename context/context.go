@@ -7,14 +7,7 @@ import (
 
 type Store interface {
 	Fetch() string
-}
-
-type StubStore struct {
-	response string
-}
-
-func (s *StubStore) Fetch() string {
-	return s.response
+	Cancel()
 }
 
 func Server(store Store) http.HandlerFunc {
